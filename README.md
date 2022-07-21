@@ -65,9 +65,19 @@ latex+raw_tex+tex_math_dollars+citations
 
 ### Executing LaTeX commands within the Markdown documents
 
-I have not found a proper way to achieve this, and most of the time it can be worked around. One of the biggest issues with this is the missing `\newpage` command, either in the middle of your document, or before a new `\section`. Both do not work out that well. 
+I have not found a proper way to achieve this, and most of the time it can be worked around. One of the biggest issues with this is the missing `\newpage` command.
 
 If the document is lengthy or important enough to require the use of `\newpage`, then I recommend taking the easy way out and using pandoc to convert the document into a LaTeX file and manually adding the `\newpage` command.
+
+One working alternative is to start a new page at the beginning of each new `\section`. You can insert the following line into the LaTeX section of the Markdown YAML to do so: 
+
+```latex
+  \AddToHook{cmd/section/before}{\clearpage}
+```
+
+
+
+## Titling- vs Titlesec-Packages
 
 Another problem I found was the use of the **titling-Package** to save the variables of Author, Date and Title for use through the document, especially in the header. While this works fine by itself, using the **titlesec-Package** to redefine the style of a heading, like `\section`, will have the titlesec-Package overwrite the content of the `\thetitle`-Variable from the titling-Package. 
 
