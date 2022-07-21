@@ -3,9 +3,11 @@ Markdown to PDF templates
 
 These are Markdown Templates with YAML headers, for ease of use to convert to LaTeX using pandoc and then to PDF using pdflatex.
 
+The editing on Markdown files is best be done by a Markdown Editor that is at least capable of rendering the most basic elements as a live preview. Two such editors are [Typora](https://typora.io/) and [Zettlr](https://www.zettlr.com/).
+
 ## Requirements 
 
-A LaTeX environment and [pandoc](https://pandoc.org/) need to be installed. To use proper references, fig’s and BibTeX-files, the [pandoc-crossref filter](https://github.com/lierdakil/pandoc-crossref) also needs to be installed. The Letter / Brief - Templates requires the use of the `scrlttr2.latex` file, copied from [JensErat](https://github.com/JensErat/pandoc-scrlttr2).
+A LaTeX environment, like [MikTeX](https://miktex.org/), and [pandoc](https://pandoc.org/) need to be installed. To use proper references, fig’s and BibTeX-files, the [pandoc-crossref filter](https://github.com/lierdakil/pandoc-crossref) is required as well. The Letter / Brief - Templates requires the use of the `scrlttr2.latex` file.
 
 ## Export using Typora
 
