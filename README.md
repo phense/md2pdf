@@ -5,17 +5,19 @@ These are Markdown Templates with YAML headers, for ease of use to convert to La
 
 ## Requirements 
 
-A LaTeX environment and [pandoc](https://pandoc.org/) need to be installed. To use proper references, fig’s and BibTeX-files, the [pandoc-crossref filter](https://github.com/lierdakil/pandoc-crossref) also needs to be installed. 
+A LaTeX environment and [pandoc](https://pandoc.org/) need to be installed. To use proper references, fig’s and BibTeX-files, the [pandoc-crossref filter](https://github.com/lierdakil/pandoc-crossref) also needs to be installed. The Letter / Brief - Templates requires the use of the `scrlttr2.latex` file, copied from [JensErat](https://github.com/JensErat/pandoc-scrlttr2).
 
 ## Export using Typora
 
-Go to the Export Settings and add 2 new Exporters (“PDF LaTeX / Pandoc”). Name one of them “PDF (Pandoc)” and the other “PDF (Pandoc) + toc”. Both already have the basic arguments supplied to them: 
+Go to the Export Settings and add 2 or 3 new Exporters (“PDF LaTeX / Pandoc”). Name one of them “PDF (Pandoc)”, optional an extra “PDF (Pandoc) + toc” and “PDF Letter (Pandoc)”. All of them already have the basic arguments supplied to them: 
 
 `-f native -s -o ${outputPath}`
 
 The PDF Engine needs the path to your pdf generator, for example pdflatex. An example in Windows using MikTeX would be `C:\tools\LaTeX\miktex\bin\x64\pdflatex.exe`.
 
 The exporter “PDF (Pandoc)” should get the following extra arguments: `-N --highlight-style haddock`, and the  “PDF (Pandoc) + toc” should get `--toc -N --highlight-style haddock`. This way, you can select the pdf export with- or without the generation of the table of contents. For additional arguments, see below.
+
+The “PDF Letter (Pandoc)” needs the extra Template field in the Typora settings set to the `scrlttr2.latex`.
 
 ## Export using pandoc
 
@@ -32,6 +34,7 @@ Arguments:
 - `--highlight-style haddock` set the [code block style](https://stackoverflow.com/questions/30880200/pandoc-what-are-the-available-syntax-highlighters)  (*optional*)
 - `-f` specifies the conversion *from* which format. Usually contains the format and is followed by the Pandoc extensions used
 - `-s` to create a standalone LaTeX document, which then gets compiled into a pdf
+- `--template scrlttr2` include the Letter-Template
 - `-o` output file name
 
 ## Use of Cross-references and BibTeX Systems
@@ -90,3 +93,43 @@ The overwrite of `\thetitle` can be worked around by manually saving the title i
 And then changing the Markdown YAML containing `\chead{\thetitle}` to `\chead{\mytitle}`.
 
 However, this also falls under the use of executing LaTeX commands, and I have yet to find a way to make this work from within the Markdown YAML. Thus, it only generates Error-Messages. 
+
+
+## Copyright
+
+The scrlttr2.latex template, forked from the [pandoc-templates] is dual-licensed, under both the GPL (v2 or higher, same as pandoc) and the BSD 3-clause license (included below).
+
+----
+
+Copyright (c) 2014, John MacFarlane
+
+Copyright (c) 2014, Jens Erat
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    
+    * Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+    
+    * Neither the name of John MacFarlane nor the names of other
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

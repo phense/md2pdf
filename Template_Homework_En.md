@@ -3,7 +3,7 @@ title: Titel of this Paper
 author: @phense
 date: \today
 documentclass: scrartcl
-classoption: a4paper, 12pt, oneside, english
+classoption: letterpaper, 12pt, oneside, english
 inputenc: utf8
 geometry: top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm
 indent: true
