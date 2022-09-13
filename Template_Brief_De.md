@@ -1,6 +1,6 @@
 ---
 letteroption: DIN
-papersize: letter
+papersize: a4paper
 lang: de-DE
 inputenc: utf8
 fontsize: 12pt
